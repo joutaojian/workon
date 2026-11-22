@@ -2,6 +2,14 @@
 
 本项目遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## Unreleased
+
+### 变更
+- **官方能力收敛为仅 pdf-tool**：按要求移除 `word-count` / `text-tidy` / `csv-tool` / `batch-rename` 四个非 PDF 官方技能，`workon/official_skills/` 现只保留 `pdf-tool`。同步更新 `tests/test_official_skills.py`（期望 1 个技能、id 集合仅 `pdf-tool`）及 AGENTS.md / README.md / AGENT-GUIDE.md / CHANGELOG 相关文档口径。
+- **召唤表单全中文**：字段标题取 manifest 的可选 `label`（中文显示名，缺省退回 `name`，不改执行占位符）；下拉选项取可选 `choices_labels`（显示中文、提交值仍是真实 `choices` 值）；文件选择改为中文按钮「＋ 选择文件 / 选择文件夹」并回显所选中文件名，去掉浏览器原生的 "Choose Files / No file chosen"；技能下拉去掉 `(id)` 英文后缀。`pdf-tool` 的 `files` / `mode` / `pages` 分别标注「PDF 文件 / 处理模式 / 页码范围」，模式选项显示「合并多个 PDF / 拆分为多个单页 PDF」。`docs/skill-format.md` 补充 `label` / `choices_labels` 字段说明。
+- **技能库移除统计卡**：移除技能库页顶部「可用技能 / 标签数量 / 技能来源」三张统计卡及其 CSS/JS（`workon/web_pages.py`）。
+- **使用指引新增「复制回 AI」第三段话术**：工作台「使用指引」从两段扩为三段，新增「反过来 · 复制回 AI 执行」卡片，示例把已固化技能（文本回显）连同脚本路径、工作目录、输入与复现命令一次性复制回任意 AI，让它按固定脚本直接复现、勿重新发明（话术与技能卡「复制给 AI」口径一致）。标题与说明同步改为三段（`workon/web_pages.py`）。
+
 ## 0.4.0 (2026-11-22)
 
 新增首页、密码登录与 5 个官方能力，并补齐「技能版本 + 更新检查」，同时修复外部 Agent 分发链路上的一组真实缺陷（由独立审查 + 端到端实测发现）。全部已实现并实测通过。

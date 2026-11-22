@@ -94,19 +94,6 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .guide-card-head strong{color:var(--title);font-size:14px}
 .guide-script{white-space:pre-wrap;word-break:break-word;line-height:1.95;font-size:13px}
 
-/* 统计卡 */
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-bottom:20px}
-.stat-card{position:relative;overflow:hidden;background:var(--surface);border:1px solid var(--line);
-        border-radius:13px;padding:19px 21px;box-shadow:var(--shadow-sm);transition:border-color .2s,box-shadow .2s,transform .2s}
-.stat-card:hover{border-color:var(--accent-line);box-shadow:var(--shadow-md);transform:translateY(-2px)}
-.stat-card .stat-label{font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.02em}
-.stat-card .stat-val{font-size:30px;font-weight:740;color:var(--title);margin-top:3px;
-        font-variant-numeric:tabular-nums;letter-spacing:-1.2px;line-height:1.2}
-.stat-ico{position:absolute;right:16px;top:16px;width:34px;height:34px;border-radius:9px;display:flex;
-        align-items:center;justify-content:center;background:var(--primary-soft);color:var(--primary)}
-.stat-ico svg{width:17px;height:17px}
-.stat-accent{position:absolute;left:0;top:14px;bottom:14px;width:3px;border-radius:0 3px 3px 0;background:var(--primary);opacity:.55}
-
 /* 卡片 / 表格 */
 .card{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:22px 24px;
         margin-bottom:18px;box-shadow:var(--shadow-sm);transition:border-color .2s,box-shadow .2s}
@@ -148,6 +135,12 @@ input[type=file]::file-selector-button{margin-right:10px;padding:6px 12px;border
         border-radius:7px;background:var(--surface-soft);color:var(--title);font-size:12px;font-weight:650;cursor:pointer;
         transition:background .18s,border-color .18s}
 input[type=file]::file-selector-button:hover{background:var(--primary-soft);border-color:var(--accent-line);color:var(--primary-dark)}
+.file-wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.file-btn{display:inline-flex!important;align-items:center;margin:0!important;padding:9px 15px;border:1px solid var(--accent-line);
+        border-radius:9px;background:var(--primary-soft);color:var(--primary-dark);font-size:13px;font-weight:650;cursor:pointer;
+        transition:background .18s,border-color .18s}
+.file-btn:hover{background:#3a2a1c}
+.file-names{color:var(--dim);font-size:12px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
 input[type=checkbox]{width:auto;margin-right:7px;accent-color:var(--primary)}
 select{cursor:pointer;appearance:none;
         background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23637068' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
@@ -232,8 +225,6 @@ select{cursor:pointer;appearance:none;
 @media(max-width:600px){.header{padding:0 15px}.header-left h1 span,.header-clock,.header-right>span:not(.header-pill){display:none}
   .header-right{gap:8px}
   .main{padding:22px 14px}.page-head h2{font-size:23px}
-  .stats{grid-template-columns:1fr;gap:10px}.stat-card{padding:13px 17px;display:flex;align-items:center;justify-content:space-between}
-  .stat-card .stat-val{font-size:23px;margin:0}.stat-ico{display:none}
   .grid{grid-template-columns:1fr}.skill-foot{align-items:flex-start;flex-direction:column}
   .skill-foot>span:last-child{width:100%}.skill-foot .btn{flex:1}
   .card{padding:17px}.page-head{margin-bottom:20px}.search-row{flex-direction:column;align-items:stretch}}
@@ -271,9 +262,9 @@ select{cursor:pointer;appearance:none;
       <div class="guide-grid">
         <div>
           <div class="kicker">GET STARTED</div>
-          <h2>开始只需要两段话</h2>
-          <p class="guide-desc">复制给你的 AI 助手（豆包、Kimi、Claude 等都可以），全程不用敲命令。第一次先装好 workon；以后每要把一件重复做的事变成技能，就用第二段。技能复现无需联网，数据始终留在你的机器上。</p>
-          <div class="guide-tip"><b>两段都只要复制、粘贴给 AI 助手。</b><br>它问「确认保存成技能吗？」时回「确认」——这是全程唯一要你做的事。</div>
+          <h2>开始只需要三段话</h2>
+          <p class="guide-desc">复制给你的 AI 助手（豆包、Kimi、Claude 等都可以），全程不用敲命令。第一次先装好 workon；以后每要把一件重复做的事变成技能，就用第二段；反过来，已经固化的技能也能复制回 AI，让它照着固定脚本直接复现，就用第三段。技能复现无需联网，数据始终留在你的机器上。</p>
+          <div class="guide-tip"><b>三段都只要复制、粘贴给 AI 助手。</b><br>前两段它问「确认保存成技能吗？」时回「确认」——这是全程唯一要你做的事；第三段是把技能交回给 AI 执行。</div>
         </div>
         <div>
           <div class="card">
@@ -289,6 +280,12 @@ select{cursor:pointer;appearance:none;
             </div>
             <pre class="terminal guide-script" id="script-2">把刚刚的任务，固化成 workon 技能（开源工具，仓库：https://github.com/joutaojian/workon），请先做一份样例给我确认，我确认没问题后，再保存成技能，以后我自己在网页上点「召唤」就能复现</pre>
           </div>
+          <div class="card">
+            <div class="guide-card-head"><strong>反过来 · 复制回 AI 执行</strong>
+              <button class="btn btn-primary" data-copy="script-3"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="5" y="5" width="8" height="8" rx="1"/><path d="M11 5V3H3v8h2"/></svg>复制这段</button>
+            </div>
+            <pre class="terminal guide-script" id="script-3">你在协助使用 workon（把人工确认的工作流冻结成技能、可确定性复现的开源工具，https://github.com/joutaojian/workon）。技能「文本回显」：读取一段文本，可转为大写后输出。演示 text → text 的最小技能。。这是人已确认的固定工作流，请优先参考本地脚本 D:\git2\workon\skills\text-echo\run.py（工作目录 D:\git2\workon\skills\text-echo），按输入 text(text) 执行，勿重新发明或临时发挥。若环境装有 workon，可用 python -m workon skill run text-echo 复现；否则直接按脚本执行。</pre>
+          </div>
         </div>
       </div>
     </section>
@@ -300,14 +297,6 @@ select{cursor:pointer;appearance:none;
           <h2>技能库</h2>
           <p>浏览所有已登记的技能，选一个点「召唤」即可复现工作。</p>
         </div>
-      </div>
-      <div class="stats">
-        <div class="stat-card"><div class="stat-accent"></div><div class="stat-label">可用技能</div><div class="stat-val" id="stat-skills">0</div>
-          <div class="stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 4H5a1 1 0 0 0-1 1v4h6V4Zm6 0v5h5V5a1 1 0 0 0-1-1h-4ZM4 15v4a1 1 0 0 0 1 1h4v-6H4Zm11 5h4a1 1 0 0 0 1-1v-4h-5v6Z"/></svg></div></div>
-        <div class="stat-card"><div class="stat-accent"></div><div class="stat-label">标签数量</div><div class="stat-val" id="stat-tags">0</div>
-          <div class="stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 11V5a1 1 0 0 1 1-1h6l9 9-7 7-9-9Z"/><circle cx="8" cy="8" r="1.4"/></svg></div></div>
-        <div class="stat-card"><div class="stat-accent"></div><div class="stat-label">技能来源</div><div class="stat-val" id="stat-sources">0</div>
-          <div class="stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 7h7l2 2h9v11H3zM3 7V4h7l2 3"/></svg></div></div>
       </div>
       <div class="card">
         <div class="search-row">
@@ -450,12 +439,7 @@ async function loadSkills(){
       </span></div>
   </div>`).join('')||'<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 4H5a1 1 0 0 0-1 1v4h6V4Zm6 0v5h5V5a1 1 0 0 0-1-1h-4ZM4 15v4a1 1 0 0 0 1 1h4v-6H4Zm11 5h4a1 1 0 0 0 1-1v-4h-5v6Z"/></svg>暂无技能。可在 skills/ 目录或外部目录放置 manifest.json。</div>';
   const sel=document.getElementById('skill-select');
-  sel.innerHTML=skills.map(s=>`<option value="${esc(s.id)}">${esc(s.name)} (${esc(s.id)})</option>`).join('');
-  document.getElementById('stat-skills').textContent=skills.length;
-  const tags=new Set();let src=new Set();
-  skills.forEach(s=>{(s.tags||[]).forEach(t=>tags.add(t));src.add(s.source)});
-  document.getElementById('stat-tags').textContent=tags.size;
-  document.getElementById('stat-sources').textContent=src.size;
+  sel.innerHTML=skills.map(s=>`<option value="${esc(s.id)}">${esc(s.name)}</option>`).join('');
   if(sel.value)renderForm();
 }
 function pickSkill(id){switchPage('run');document.getElementById('skill-select').value=id;renderForm()}
@@ -463,18 +447,26 @@ function renderForm(){
   const s=skills.find(x=>x.id===document.getElementById('skill-select').value);if(!s)return;
   const form=document.getElementById('form');let html='';
   (s.inputs||[]).forEach(f=>{
-    if(f.type==='text') html+=`<label>${esc(f.name)}${f.required?' <span class="req">*</span>':''}<span class="desc">${esc(f.description)}</span></label><input id="in-${esc(f.name)}" placeholder="输入文本">`;
+    const lbl=esc(f.label||f.name);
+    if(f.type==='text') html+=`<label>${lbl}${f.required?' <span class="req">*</span>':''}<span class="desc">${esc(f.description)}</span></label><input id="in-${esc(f.name)}" placeholder="输入文本">`;
     else {
       const attrs=f.type==='dir'?' webkitdirectory multiple':(f.multiple&&['file','docx','xlsx','image'].includes(f.type)?' multiple':'');
-      html+=`<label>${esc(f.name)}${f.required?' <span class="req">*</span>':''}<span class="desc">${esc(f.description)}</span></label><input type="file" id="in-${esc(f.name)}"${attrs}>`;
+      const fbtn=f.type==='dir'?'选择文件夹':'选择文件';
+      html+=`<label>${lbl}${f.required?' <span class="req">*</span>':''}<span class="desc">${esc(f.description)}</span></label><div class="file-wrap"><label class="file-btn" for="in-${esc(f.name)}">＋ ${fbtn}</label><input type="file" id="in-${esc(f.name)}" style="display:none"${attrs}><span class="file-names" id="fn-${esc(f.name)}">未选择文件</span></div>`;
     }
   });
   (s.params||[]).forEach(p=>{
-    if(p.type==='boolean') html+=`<label><input type="checkbox" id="param-${esc(p.name)}"> ${esc(p.name)}</label>`;
-    else if(p.choices&&p.choices.length) html+=`<label>${esc(p.name)}</label><select id="param-${esc(p.name)}">${p.choices.map(c=>`<option>${esc(c)}</option>`).join('')}</select>`;
-    else html+=`<label>${esc(p.name)}</label><input id="param-${esc(p.name)}" value="${esc(p.default)}">`;
+    const lbl=esc(p.label||p.name);
+    if(p.type==='boolean') html+=`<label><input type="checkbox" id="param-${esc(p.name)}"> ${lbl}</label>`;
+    else if(p.choices&&p.choices.length){const cl=p.choices_labels||{};html+=`<label>${lbl}</label><select id="param-${esc(p.name)}">${p.choices.map(c=>`<option value="${esc(c)}">${esc(cl[c]||c)}</option>`).join('')}</select>`;}
+    else html+=`<label>${lbl}</label><input id="param-${esc(p.name)}" value="${esc(p.default)}">`;
   });
   form.innerHTML=html;
+  (s.inputs||[]).forEach(f=>{
+    if(f.type==='text')return;
+    const el=document.getElementById('in-'+f.name),out=document.getElementById('fn-'+f.name);
+    el.addEventListener('change',()=>{const fs=Array.from(el.files||[]);out.textContent=fs.length?(fs.length===1?fs[0].name:('已选择 '+fs.length+' 个文件')):'未选择文件'});
+  });
 }
 async function runSkill(){
   const s=skills.find(x=>x.id===document.getElementById('skill-select').value);if(!s)return;

@@ -187,6 +187,7 @@ def _validate_fields(items: Any, allowed: set[str], label: str) -> list[dict[str
         result.append(
             {
                 "name": str(item["name"]),
+                "label": str(item.get("label") or ""),
                 "type": ftype,
                 "required": _as_bool(item.get("required", True), True),
                 "description": str(item.get("description") or ""),
@@ -213,11 +214,15 @@ def _validate_params(items: Any) -> list[dict[str, Any]]:
         result.append(
             {
                 "name": str(item["name"]),
+                "label": str(item.get("label") or ""),
                 "type": ptype,
                 "default": item.get("default", False if ptype == "boolean" else ""),
                 "flag": str(item.get("flag") or ""),
                 "description": str(item.get("description") or ""),
                 "choices": [str(c) for c in item.get("choices", [])],
+                "choices_labels": {
+                    str(k): str(v) for k, v in (item.get("choices_labels") or {}).items()
+                },
             }
         )
     return result

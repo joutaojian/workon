@@ -56,7 +56,7 @@ workon 把做好的工作**冻结**成「技能」。以后填上输入、点「
 1. 打开 `http://localhost:8080` →「**进入工作台**」→ 登录（默认密码 `workon`）→「**召唤技能**」；
 2. 选技能、填输入（`*` 必填）→ 点「**召唤**」。文字结果在页面结果区，文件在 `data/runs/<run_id>/outputs/`。
 
-带「⭐ 官方能力」徽章的 5 个技能（PDF 合并/拆分、文稿字数统计、文本整理、表格整理、文件批量重命名）都是内置的，开箱即用。
+带「⭐ 官方能力」徽章的技能（PDF 合并/拆分）是内置的，开箱即用。
 
 ---
 
@@ -101,7 +101,7 @@ flowchart LR
 - **私有脚本不进公共仓库**：真实业务脚本留在你自己的私有仓库，登记目录即可，无需复制进本仓库。
 - **完整执行历史**：每次召唤的输入、参数、输出、耗时都记进本地 SQLite；结果文件保存在 `data/runs/<run_id>/outputs/`。
 - **三种调用方式**：命令行、HTTP API、点网页。网页先展示首页使用方案，再密码登录进入工作台（默认 `workon`）。
-- **⭐ 官方能力，开箱即用**：内置 5 个官方技能——PDF 合并/拆分、文稿字数统计、文本整理、表格整理、文件批量重命名（纯标准库实现，无需联网），带徽章置顶且不可删除，和用户自己添加的私有技能明确区分。
+- **⭐ 官方能力，开箱即用**：内置官方技能 PDF 合并/拆分（纯标准库实现，无需联网），带徽章置顶且不可删除，和用户自己添加的私有技能明确区分。
 
 ### 快速开始（命令行）
 
@@ -220,7 +220,7 @@ workon/                      核心包（配置/模型/注册表/执行器/存�
   pages.py                   首页 / 登录页 HTML（纯 CSS，无外部资源）
   web.py                     Flask Web/API + 密码登录鉴权
   skills/workon-capture/     说明书源文件（可选功能，随包分发）
-  official_skills/           ⭐ 官方能力 ×5：pdf-tool / word-count / text-tidy / csv-tool / batch-rename（纯标准库，不可删除）
+  official_skills/           ⭐ 官方能力仅 pdf-tool（PDF 合并/拆分，纯标准库，不可删除）
 skills/                      内置示例技能（勿放私有脚本）
 docs/                        设计与格式文档
 entry.py                     开发入口（等价于 python -m workon）
@@ -425,7 +425,7 @@ workon/                       core package (config / models / registry / runner 
   pages.py                    home / login page HTML (pure CSS, no external assets)
   web.py                      Flask Web console, HTTP API and password sign-in
   skills/workon-capture/      instruction file source (optional feature, shipped with the package)
-  official_skills/            ⭐ 5 official capabilities: pdf-tool / word-count / text-tidy / csv-tool / batch-rename (pure stdlib, non-deletable)
+  official_skills/            ⭐ only pdf-tool (PDF merge/split, pure stdlib, non-deletable)
 skills/                       built-in example skills (do not put private scripts here)
 docs/                         design and skill-format documentation
 entry.py                      development entry point (equivalent to python -m workon)

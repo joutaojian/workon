@@ -11,7 +11,7 @@ class OfficialSkillsTest(unittest.TestCase):
 
     def test_official_skills_valid(self):
         dirs = sorted(p for p in OFFICIAL_SKILLS_DIR.iterdir() if p.is_dir())
-        self.assertEqual(len(dirs), 5, "官方技能必须恰好 5 个，不允许新增或删除")
+        self.assertEqual(len(dirs), 1, "官方技能必须恰好 1 个（仅 pdf-tool），不允许新增或删除")
         ids = set()
         for skill_dir in dirs:
             manifest = skill_dir / "manifest.json"
@@ -24,8 +24,8 @@ class OfficialSkillsTest(unittest.TestCase):
             self.assertTrue((skill_dir / "README.md").is_file(), skill.id + " 缺 README")
         self.assertEqual(
             ids,
-            {"pdf-tool", "word-count", "text-tidy", "csv-tool", "batch-rename"},
-            "官方技能 id 集合是对外契约，不能增删或改名",
+            {"pdf-tool"},
+            "官方技能 id 集合是对外契约，仅保留 pdf-tool，不能增删或改名",
         )
 
 

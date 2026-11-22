@@ -35,6 +35,7 @@ my-skill/
 | 字段 | 说明 |
 | --- | --- |
 | `name` | 字段标识；同时作为 `entry.args` 中的 `{占位符}` 名 |
+| `label` | 可选，中文显示名；Web 表单用它做字段标题，缺省时退回 `name`（不影响执行占位符） |
 | `type` | 见下方类型表；inputs 与 outputs 允许的类型略有差异 |
 | `required` | 是否必填，默认 `true` |
 | `description` | 说明 |
@@ -67,6 +68,8 @@ my-skill/
 | `default` | 默认值（boolean 默认 `false`，其余默认空串） |
 | `flag` | 布尔参数为 true 时追加的命令行 flag（如 `--upper`）；声明后该参数只通过 flag 传递，不进入占位符 |
 | `choices` | 可选值列表，传入其他值会报错 |
+| `label` | 可选，中文显示名；Web 表单用它做参数标题，缺省时退回 `name` |
+| `choices_labels` | 可选，字典 `{选项值: 中文显示名}`；Web 下拉框显示中文，提交值仍是原 `choices` 值 |
 | `description` | 说明 |
 
 ## 占位符与执行

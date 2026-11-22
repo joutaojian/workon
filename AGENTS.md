@@ -17,7 +17,7 @@ workon 是开源、本地优先的「AI 产出冻结层」：AI 做一次、人�
 | `workon/` | 核心包：config / models / registry / runner / storage / capture / install / update / cli / web / pages |
 | `workon/pages.py` | 首页 / 登录页 HTML（`HOME_HTML`、`LOGIN_HTML`） |
 | `workon/web.py` | Flask Web/API，`INDEX_HTML` 技能工作台 |
-| `workon/official_skills/` | ⭐ 官方能力 ×5（pdf-tool / word-count / text-tidy / csv-tool / batch-rename），统一约束见其 `AGENTS.md`，pdf-tool 另有自己的 `AGENTS.md` |
+| `workon/official_skills/` | ⭐ 官方能力仅 pdf-tool（PDF 合并/拆分），约束见其 `AGENTS.md`（目录级与 pdf-tool 各有一份） |
 | `workon/skills/workon-capture/` | 给外部 Agent 的说明书源 `SKILL.md`，有自己的 AGENTS.md |
 | `skills/` | 内置示例技能，有自己的 AGENTS.md |
 | `tests/` | `python -m unittest discover -s tests`（10 个用例，含官方技能回归） |
@@ -30,7 +30,7 @@ workon 是开源、本地优先的「AI 产出冻结层」：AI 做一次、人�
 3. **核心零依赖**：`workon/` 只用标准库；Flask 仅 `web.py` 可选导入。不给核心加第三方依赖。
 4. **兼容 Python 3.9+**：不用 `match`、`int | str` 等 3.10+ 语法。
 5. **安全红线**：不提交口令、令牌、内网地址、真实业务数据；`data/` 是运行时数据（`workon.db`、`secret.key`、`runs/`），不入库、不手改。
-6. **官方能力不可动**：`workon/official_skills/` 下所有技能保持 `official: true`、纯标准库、`dependencies: []`、不可删除；其输出文件名是对外契约（pdf-tool 的 `merged.pdf` / `split_pages`，word-count 的 `word-count-report.json`，text-tidy 的 `tidied/`，csv-tool 的 `result.csv` / `result.xlsx`，batch-rename 的 `renamed/`）。
+6. **官方能力不可动**：`workon/official_skills/` 下仅保留 pdf-tool，保持 `official: true`、纯标准库、`dependencies: []`、不可删除；其输出文件名是对外契约（`merged.pdf` / `split_pages`）。
 7. **`{{WORKON}}` 占位符原样保留**：详见 `workon/skills/workon-capture/AGENTS.md`。
 8. **固化协议的人工确认关卡不可绕过**：`capture --yes` 之前必须由人确认（AGENT-GUIDE.md 七步协议）。
 9. **UI 主题橙黑**：`--accent:#ff7a1a`、`--bg:#14110f`、`--surface:#1e1a17`、`--text:#ddd2c6`、`--title:#fff4e8`；样式改动沿用这套 CSS 变量，保持纯 CSS。
