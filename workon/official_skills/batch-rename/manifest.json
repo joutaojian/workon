@@ -1,0 +1,58 @@
+{
+  "id": "batch-rename",
+  "name": "文件批量重命名（官方）",
+  "description": "官方内置能力，批量重命名文件：统一加前缀、统一加后缀、替换文件名中的词句、按顺序编号。适合整理扫描件、附件、照片。纯 Python 标准库实现，无需联网或第三方依赖。",
+  "version": "1.0.0",
+  "author": "workon",
+  "official": true,
+  "tags": ["official", "file", "rename", "office"],
+  "inputs": [
+    {
+      "name": "files",
+      "type": "file",
+      "required": true,
+      "multiple": true,
+      "description": "一个或多个要重命名的文件（任意类型）。"
+    }
+  ],
+  "params": [
+    {
+      "name": "mode",
+      "type": "string",
+      "default": "prefix",
+      "choices": ["prefix", "suffix", "replace", "number"],
+      "description": "prefix=加前缀；suffix=加后缀（扩展名前）；replace=替换词句；number=按顺序编号。"
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "default": "",
+      "description": "前缀/后缀/新词句/编号前缀（如「报销单_」）。"
+    },
+    {
+      "name": "find",
+      "type": "string",
+      "default": "",
+      "description": "mode=replace 时：文件名中要替换掉的词句。"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "files",
+      "type": "dir",
+      "path": "renamed",
+      "description": "重命名后的文件目录。"
+    },
+    {
+      "name": "summary",
+      "type": "text",
+      "description": "新旧文件名对照摘要。"
+    }
+  ],
+  "entry": {
+    "command": "python",
+    "args": ["run.py", "--inputs", "{files}", "--mode", "{mode}", "--text", "{text}", "--find", "{find}"]
+  },
+  "timeout_seconds": 120,
+  "dependencies": []
+}

@@ -1,0 +1,9 @@
+# 核心（CLI、技能发现与执行）零第三方依赖，仅需 Python 3.9+
+#
+# Web / HTTP API（可选，仅在需要图形界面或 API 时安装）
+Flask>=2.3
+
+# 说明：
+# - 具体技能所需的依赖（pandas / openpyxl / python-docx 等）由各技能自行在
+#   自己的 requirements.txt 中声明，本平台核心不强制安装，保持轻量。
+# - 每个技能可自行选择用虚拟环境运行；平台仅负责按 manifest 契约调用与传参。

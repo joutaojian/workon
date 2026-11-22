@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+
+# 打包/构建产物
+build/
+dist/
+*.db
+
+# 运行时数据（技能执行记录、临时文件、设置）
+data/
+runs/
+
+# 本地环境/密钥（绝不入库）
+.env
+*.local
+config.yml
+*.pem
+*.key
+
+# 编辑器/系统
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# 日志与系统杂项
+*.log
+nul
+
+# 注意：不再忽略 *.csv / *.xlsx / *.xls —— 这些是技能常用的示例输入/输出格式，
+# 允许作为示例随技能一起提交。真实业务数据请放在私有技能仓库，不要提交到本仓库。

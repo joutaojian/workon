@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#1C1917" flood-opacity="0.12"/>
+    </filter>
+    <linearGradient id="winbar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#F4F4F1"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="620" fill="#F4F4F1"/>
+  <!-- browser window -->
+  <rect x="30" y="24" width="940" height="572" rx="12" fill="#ffffff" filter="url(#shadow)"/>
+  <rect x="30" y="24" width="940" height="44" rx="12" fill="url(#winbar)"/>
+  <circle cx="56" cy="46" r="6" fill="#ef4444"/>
+  <circle cx="78" cy="46" r="6" fill="#f59e0b"/>
+  <circle cx="100" cy="46" r="6" fill="#16A34A"/>
+  <rect x="130" y="35" width="700" height="22" rx="6" fill="#ffffff" stroke="#E7E5E0"/>
+  <text x="142" y="50" fill="#6B6B66" font-size="12">http://localhost:8080</text>
+
+  <!-- title -->
+  <text x="60" y="106" fill="#1C1917" font-size="22" font-weight="700">workon · 技能工作台</text>
+  <text x="60" y="128" fill="#6B6B66" font-size="12">把重复的固定工作固化成技能，按需召唤，无需重复调用大模型。</text>
+
+  <!-- tabs -->
+  <g font-size="13">
+    <rect x="60" y="146" width="86" height="32" rx="8" fill="#ffffff" stroke="#E7E5E0"/>
+    <text x="103" y="167" fill="#6B6B66" text-anchor="middle">技能库</text>
+    <rect x="154" y="146" width="86" height="32" rx="8" fill="#0E7E4E"/>
+    <text x="197" y="167" fill="#ffffff" text-anchor="middle">召唤技能</text>
+    <rect x="248" y="146" width="86" height="32" rx="8" fill="#ffffff" stroke="#E7E5E0"/>
+    <text x="291" y="167" fill="#6B6B66" text-anchor="middle">执行历史</text>
+    <rect x="342" y="146" width="72" height="32" rx="8" fill="#ffffff" stroke="#E7E5E0"/>
+    <text x="378" y="167" fill="#6B6B66" text-anchor="middle">设置</text>
+  </g>
+
+  <!-- main card -->
+  <rect x="60" y="196" width="880" height="376" rx="12" fill="#ffffff" stroke="#E7E5E0"/>
+
+  <!-- select skill -->
+  <text x="84" y="226" fill="#1C1917" font-size="13" font-weight="600">选择技能</text>
+  <rect x="84" y="236" width="832" height="36" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="96" y="259" fill="#1C1917" font-size="13">月度报表汇总 (monthly-report)</text>
+  <path d="M890 250 l7 7 l7 -7" fill="none" stroke="#6B6B66" stroke-width="1.5"/>
+
+  <!-- text input -->
+  <text x="84" y="304" fill="#1C1917" font-size="13" font-weight="600">title 报表标题</text>
+  <rect x="84" y="314" width="832" height="36" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="96" y="337" fill="#8A8A82" font-size="13">输入文本</text>
+
+  <!-- file input -->
+  <text x="84" y="382" fill="#1C1917" font-size="13" font-weight="600">source (xlsx) 源数据表</text>
+  <rect x="84" y="392" width="832" height="36" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="84" y="392" width="96" height="36" rx="8" fill="#F4F4F1" stroke="#cbd5e1"/>
+  <text x="99" y="415" fill="#6B6B66" font-size="12">选择文件</text>
+  <text x="196" y="415" fill="#8A8A82" font-size="13">未选择文件</text>
+
+  <!-- checkbox param -->
+  <rect x="84" y="449" width="16" height="16" rx="4" fill="#0E7E4E"/>
+  <path d="M88 457 l3 3 l6 -7" fill="none" stroke="#ffffff" stroke-width="2"/>
+  <text x="110" y="462" fill="#1C1917" font-size="13">detailed 详细模式</text>
+
+  <!-- invoke button -->
+  <rect x="84" y="490" width="104" height="38" rx="8" fill="#0E7E4E"/>
+  <text x="136" y="514" fill="#ffffff" font-size="14" font-weight="600" text-anchor="middle">召 唤</text>
+
+  <!-- result box -->
+  <rect x="204" y="490" width="712" height="60" rx="8" fill="#1C1917"/>
+  <text x="218" y="512" fill="#e2e8f0" font-size="12" font-family="monospace">状态: success</text>
+  <text x="218" y="532" fill="#86efac" font-size="12" font-family="monospace">文件: 九月报表.xlsx (24512 bytes)  ✓ 完成</text>
+
+  <!-- caption -->
+  <text x="500" y="604" fill="#6B6B66" font-size="12" text-anchor="middle">图：在「召唤技能」页填好输入、点一下「召唤」，结果立即显示在下方（示意图）</text>
+</svg>

@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "workon"
+version = "0.4.0"
+description = "把 AI 一次性完成的工作固化成可一键召唤的确定性技能"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "workon contributors" }]
+keywords = ["ai", "agent", "skills", "automation", "cli", "workflow"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Office/Business",
+    "Topic :: Utilities",
+]
+dependencies = []
+
+[project.optional-dependencies]
+web = ["Flask>=2.3"]
+
+[project.urls]
+Homepage = "https://github.com/joutaojian/workon"
+Repository = "https://github.com/joutaojian/workon"
+Issues = "https://github.com/joutaojian/workon/issues"
+
+[project.scripts]
+workon = "workon.cli:main"
+
+[tool.setuptools]
+packages = ["workon"]
+
+[tool.setuptools.package-data]
+# 技能源放进包内，非 editable 的 pip install 之后 install-skill 才有文件可复制。
+# 官方能力（PDF 合并/拆分）的 manifest 与脚本也必须随包分发，否则 pip 安装后不可删除的官方技能会缺失。
+workon = [
+  "skills/*/*.md",
+  "official_skills/AGENTS.md",
+  "official_skills/pdf-tool/AGENTS.md",
+  "official_skills/*/manifest.json",
+  "official_skills/*/run.py",
+  "official_skills/*/*.md",
+]

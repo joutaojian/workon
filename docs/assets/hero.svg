@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FAFAF8"/>
+      <stop offset="55%" stop-color="#F4F7F4"/>
+      <stop offset="100%" stop-color="#E8F1EA"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#FBFDFB"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0E7E4E"/>
+      <stop offset="100%" stop-color="#3FCF8E"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0E7E4E"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="420" fill="url(#bg)"/>
+  <circle cx="1060" cy="60" r="180" fill="#0E7E4E" opacity="0.06"/>
+  <circle cx="120" cy="380" r="200" fill="#3FCF8E" opacity="0.08"/>
+
+  <text x="60" y="86" fill="#1C1917" font-size="40" font-weight="700">workon · 技能工作台</text>
+  <text x="60" y="126" fill="#6B6B66" font-size="19">AI 只做一次，人只确认一次，之后零幻觉反复召唤 · Do it once with AI, freeze it, reuse it forever</text>
+
+  <!-- Flow cards -->
+  <g>
+    <rect x="60" y="168" width="230" height="180" rx="16" fill="url(#card)" stroke="#E7E5E0"/>
+    <circle cx="92" cy="206" r="20" fill="#0E7E4E"/>
+    <text x="92" y="213" fill="#fff" font-size="20" font-weight="700" text-anchor="middle">1</text>
+    <text x="124" y="213" fill="#1C1917" font-size="21" font-weight="600">AI 做一次</text>
+    <text x="124" y="240" fill="#6B6B66" font-size="13">AI does it once</text>
+    <text x="82" y="278" fill="#1C1917" font-size="14">写脚本 · 处理文件</text>
+    <text x="82" y="304" fill="#1C1917" font-size="14">生成固定结果</text>
+    <text x="82" y="336" fill="#8A8A82" font-size="13">本地运行 · 无需联网</text>
+  </g>
+
+  <line x1="300" y1="258" x2="352" y2="258" stroke="#0E7E4E" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="360" y="168" width="230" height="180" rx="16" fill="url(#card)" stroke="#E7E5E0"/>
+    <circle cx="392" cy="206" r="20" fill="#0E7E4E"/>
+    <text x="392" y="213" fill="#fff" font-size="20" font-weight="700" text-anchor="middle">2</text>
+    <text x="424" y="213" fill="#1C1917" font-size="21" font-weight="600">人确认一次</text>
+    <text x="424" y="240" fill="#6B6B66" font-size="13">You approve once</text>
+    <text x="382" y="278" fill="#1C1917" font-size="14">看一眼结果对不对</text>
+    <text x="382" y="304" fill="#1C1917" font-size="14">确认后就"冻结"</text>
+    <text x="382" y="336" fill="#8A8A82" font-size="13">one human checkpoint</text>
+  </g>
+
+  <line x1="600" y1="258" x2="652" y2="258" stroke="#0E7E4E" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="660" y="168" width="230" height="180" rx="16" fill="url(#card)" stroke="#E7E5E0"/>
+    <circle cx="692" cy="206" r="20" fill="#0E7E4E"/>
+    <text x="692" y="213" fill="#fff" font-size="20" font-weight="700" text-anchor="middle">3</text>
+    <text x="724" y="213" fill="#1C1917" font-size="21" font-weight="600">固化为技能</text>
+    <text x="724" y="240" fill="#6B6B66" font-size="13">Freeze as a skill</text>
+    <text x="682" y="278" fill="#1C1917" font-size="14">脚本 + 契约 + 样例</text>
+    <text x="682" y="304" fill="#1C1917" font-size="14">存进本地技能库</text>
+    <text x="682" y="336" fill="#8A8A82" font-size="13">manifest.json</text>
+  </g>
+
+  <line x1="900" y1="258" x2="952" y2="258" stroke="#0E7E4E" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="960" y="168" width="180" height="180" rx="16" fill="url(#accent)" opacity="0.92"/>
+    <circle cx="992" cy="206" r="20" fill="#ffffff" opacity="0.9"/>
+    <text x="992" y="213" fill="#0E7E4E" font-size="20" font-weight="700" text-anchor="middle">4</text>
+    <text x="1024" y="213" fill="#ffffff" font-size="21" font-weight="600">反复召唤</text>
+    <text x="1024" y="240" fill="#E8F1EA" font-size="13">Reuse anytime</text>
+    <text x="982" y="278" fill="#ffffff" font-size="14">填好输入</text>
+    <text x="982" y="304" fill="#ffffff" font-size="14">点一下就出结果</text>
+    <text x="982" y="336" fill="#E8F1EA" font-size="13">不用再找 AI</text>
+  </g>
+
+  <rect x="60" y="372" width="1080" height="1" fill="url(#accent)" opacity="0.5"/>
+  <text x="60" y="400" fill="#6B6B66" font-size="13">本地优先 · 零核心依赖 · SQLite 历史 · 命令白名单 · 临时目录隔离</text>
+</svg>

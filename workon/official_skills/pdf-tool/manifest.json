@@ -1,0 +1,54 @@
+{
+  "id": "pdf-tool",
+  "name": "PDF 合并与拆分（官方）",
+  "description": "官方内置能力，免费替代 WPS 付费的 PDF 合并/拆分。支持把多个 PDF 合并为一个，或把一个 PDF 按页码拆分为多个单页 PDF；纯 Python 标准库实现，无需联网或第三方依赖。",
+  "version": "1.0.0",
+  "author": "workon",
+  "official": true,
+  "tags": ["official", "pdf", "merge", "split", "office"],
+  "inputs": [
+    {
+      "name": "files",
+      "type": "file",
+      "ext": ["pdf"],
+      "required": true,
+      "multiple": true,
+      "description": "一个或多个 PDF 文件。合并模式传多个；拆分模式只传一个。"
+    }
+  ],
+  "params": [
+    {
+      "name": "mode",
+      "type": "string",
+      "default": "merge",
+      "choices": ["merge", "split"],
+      "description": "处理模式：merge=合并多个 PDF 为一个，split=把一个 PDF 拆成多个单页 PDF。"
+    },
+    {
+      "name": "pages",
+      "type": "string",
+      "default": "",
+      "description": "仅拆分模式有效：要提取的页码范围，如 1-3,5,7-9；留空表示拆分全部页面。"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "merged",
+      "type": "file",
+      "path": "merged.pdf",
+      "description": "合并模式生成的单一 PDF 文件。"
+    },
+    {
+      "name": "pages",
+      "type": "dir",
+      "path": "split_pages",
+      "description": "拆分模式生成的目录，内含每个单页一个 PDF 文件。"
+    }
+  ],
+  "entry": {
+    "command": "python",
+    "args": ["run.py", "--mode", "{mode}", "--inputs", "{files}", "--pages", "{pages}"]
+  },
+  "timeout_seconds": 120,
+  "dependencies": []
+}

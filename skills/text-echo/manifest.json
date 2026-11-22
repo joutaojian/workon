@@ -1,0 +1,39 @@
+{
+  "id": "text-echo",
+  "name": "文本回显",
+  "description": "读取一段文本，可转为大写后输出。演示 text → text 的最小技能。",
+  "version": "1.0.0",
+  "author": "workon",
+  "tags": ["demo", "text", "example"],
+  "inputs": [
+    {
+      "name": "text",
+      "type": "text",
+      "required": true,
+      "description": "要处理的文本"
+    }
+  ],
+  "params": [
+    {
+      "name": "upper",
+      "type": "boolean",
+      "default": false,
+      "flag": "--upper",
+      "description": "是否转为大写"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "type": "text",
+      "source": "stdout",
+      "description": "回显的文本"
+    }
+  ],
+  "entry": {
+    "command": "python",
+    "args": ["run.py", "--text", "{text}"]
+  },
+  "timeout_seconds": 30,
+  "dependencies": []
+}

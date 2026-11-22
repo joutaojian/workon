@@ -1,0 +1,23 @@
+# workon 配置说明文件（示例）
+# 实际运行时配置通过环境变量或 data/settings.json 提供，见 .env.example。
+# 本文件仅作说明用途，不会被程序读取。
+
+data_dir: data            # 数据与执行记录目录
+host: 0.0.0.0             # Web 监听地址
+port: 8080                # Web 端口
+default_timeout: 120      # 默认技能超时（秒）
+max_upload_mb: 50         # 上传大小上限
+
+# 技能目录：内置 skills/ 始终启用，这里列出附加的外部目录（你的私有技能仓库）
+skill_dirs:
+  # - D:/git/my-private-skills
+
+# 允许执行的命令白名单
+allowed_commands:
+  - python
+  - python3
+  - node
+  - bash
+  - sh
+  - powershell
+  - pwsh
