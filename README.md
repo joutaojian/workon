@@ -38,6 +38,7 @@ workon 把做好的工作**冻结**成「技能」。以后填上输入、点「
 > ```
 > 请帮我安装并开始使用开源工具 workon：如果我的电脑上还没装好，请先按项目仓库的 README 帮我装好并启动本地工作台。装好后帮我把一件要重复做的事固化成技能，固化前让我确认结果。以后我自己在网页上点「召唤」就能复现，不用再找 AI。
 > 项目地址：https://github.com/joutaojian/workon
+> 国内网络兜底：pip 装依赖优先用清华镜像 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt；若 GitHub 直连 clone 失败（CONNECT 502/超时），把原始 clone 地址完整拼在镜像前缀后再克隆，如 git clone https://ghfast.top/https://github.com/joutaojian/workon.git；该镜像失效就换 https://gh-proxy.com/ 或 https://ghproxy.net/，也可自行搜索最新可用的 GitHub 加速镜像。
 > ```
 
 它问「确认保存成技能吗？」时回「确认」——**这是全程唯一要你做的事**。
@@ -106,12 +107,14 @@ flowchart LR
 ### 快速开始（命令行）
 
 > 尚未发布到 PyPI（PyPI 上的同名 `workon` 是另一个项目），请从 GitHub 安装。Windows 终端先设中文编码：PowerShell 用 `$env:PYTHONIOENCODING = "utf-8"`，Bash 用 `export PYTHONIOENCODING=utf-8`。
+>
+> **国内网络兜底**：pip 装依赖优先走清华镜像（`-i https://pypi.tuna.tsinghua.edu.cn/simple`）；GitHub 直连 clone 若报 `CONNECT 502` / 超时，把原始 clone 地址完整拼在镜像前缀后再克隆（如 `https://ghfast.top/https://github.com/joutaojian/workon.git`，失效可换 `https://gh-proxy.com/` / `https://ghproxy.net/`，镜像会变动，可搜索最新可用地址）。
 
 ```bash
-# 安装
+# 安装（国内网络：见上方镜像兜底，按需给 git clone 加镜像前缀、给 pip 加 -i 清华源）
 git clone https://github.com/joutaojian/workon.git
 cd workon
-pip install -r requirements.txt        # 仅 Flask 一个可选依赖，核心零依赖
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt  # 仅 Flask 一个可选依赖，核心零依赖
 pip install -e .                       # 可选：注册全局 workon 命令
 
 # 说明：wheel 安装不含示例技能，示例见仓库 skills/ 目录；源码安装可用。

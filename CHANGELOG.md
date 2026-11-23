@@ -9,6 +9,7 @@
 - **召唤表单全中文**：字段标题取 manifest 的可选 `label`（中文显示名，缺省退回 `name`，不改执行占位符）；下拉选项取可选 `choices_labels`（显示中文、提交值仍是真实 `choices` 值）；文件选择改为中文按钮「＋ 选择文件 / 选择文件夹」并回显所选中文件名，去掉浏览器原生的 "Choose Files / No file chosen"；技能下拉去掉 `(id)` 英文后缀。`pdf-tool` 的 `files` / `mode` / `pages` 分别标注「PDF 文件 / 处理模式 / 页码范围」，模式选项显示「合并多个 PDF / 拆分为多个单页 PDF」。`docs/skill-format.md` 补充 `label` / `choices_labels` 字段说明。
 - **技能库移除统计卡**：移除技能库页顶部「可用技能 / 标签数量 / 技能来源」三张统计卡及其 CSS/JS（`workon/web_pages.py`）。
 - **使用指引新增「复制回 AI」第三段话术**：工作台「使用指引」从两段扩为三段，新增「反过来 · 复制回 AI 执行」卡片，示例把已固化技能（文本回显）连同脚本路径、工作目录、输入与复现命令一次性复制回任意 AI，让它按固定脚本直接复现、勿重新发明（话术与技能卡「复制给 AI」口径一致）。标题与说明同步改为三段（`workon/web_pages.py`）。
+- **安装话术加国内网络兜底**：给外部 AI Agent 的安装话术（首页 / 工作台使用指引 / README 三处逐字一致）末尾补一段提示——pip 装依赖优先走清华镜像 `-i https://pypi.tuna.tsinghua.edu.cn/simple`；GitHub 直连 clone 报 CONNECT 502 / 超时时，把原始 clone 地址完整拼在镜像前缀（如 `https://ghfast.top/`）后再克隆，失效可换 `https://gh-proxy.com/` / `https://ghproxy.net/` 或自搜最新镜像。README 命令行安装区同步加镜像说明与示例命令（实测场景：Agent 照话术安装时被企业网络拦 GitHub、pip 源受限）。
 
 ## 0.4.0 (2026-11-22)
 

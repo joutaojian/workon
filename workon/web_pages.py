@@ -272,7 +272,8 @@ select{cursor:pointer;appearance:none;
               <button class="btn btn-primary" data-copy="script-1"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="5" y="5" width="8" height="8" rx="1"/><path d="M11 5V3H3v8h2"/></svg>复制这段</button>
             </div>
             <pre class="terminal guide-script" id="script-1">请帮我安装并开始使用开源工具 workon：如果我的电脑上还没装好，请先按项目仓库的 README 帮我装好并启动本地工作台。装好后帮我把一件要重复做的事固化成技能，固化前让我确认结果。以后我自己在网页上点「召唤」就能复现，不用再找 AI。
-项目地址：https://github.com/joutaojian/workon</pre>
+项目地址：https://github.com/joutaojian/workon
+国内网络兜底：pip 装依赖优先用清华镜像 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt；若 GitHub 直连 clone 失败（CONNECT 502/超时），把原始 clone 地址完整拼在镜像前缀后再克隆，如 git clone https://ghfast.top/https://github.com/joutaojian/workon.git；该镜像失效就换 https://gh-proxy.com/ 或 https://ghproxy.net/，也可自行搜索最新可用的 GitHub 加速镜像。</pre>
           </div>
           <div class="card">
             <div class="guide-card-head"><strong>以后 · 固化成技能</strong>
